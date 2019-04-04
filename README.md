@@ -100,7 +100,7 @@ Running this program with data mentioned above will result in a following result
 
 As you can see we can describe any rules for merging data.
 
-Program consists of two types of definitions: merges and funcs. Func is a regular function. You can call them in C-like style or using `$`-notation. `a.b.$c(1, 3)` is an equivalent of C-like  `c(a.b, 1, 3)`. This notation was added for convenient use of nested fields. You can omit parameters list if it's empty. Merges describe how to merge json field by field. 
+Program consists of two types of definitions: merges and funcs. Func is a regular function. You can call them in C-like style or using `$`-notation. `a.b.$c(1, 3)` is an equivalent of C-like  `c(a.b, 1, 3)`. This notation was added for convenient use of nested fields. You can omit parameters list if it's empty. Merges describe how to merge json field by field. All merges are relative, it means that they can be reused in different nesting levels. In program should be exactly one merge named main without arguments. It is an entry point of program. This merge will be called with collection of conflict documents. You can specify a specific merge for each subfield. To specify default merge you cat use `*` instead of field name.       
 
 Syntax is fully described in BNF notation:
 ```
